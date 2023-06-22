@@ -15,10 +15,12 @@ func main() {
 
 func start(c, r, nb int) {
 	emptyBoard := createBoard(c, r)
-	// fmt.Printf("len=%d cap=%d %v\n", len(emptyBoard), cap(emptyBoard), emptyBoard)
 	bombBoard, locs := setBombs(emptyBoard, c, r, nb)
 	boardWithNums := setNumbers(bombBoard, locs)
 	fmt.Println("w/ nums", boardWithNums)
+	for i := 0; i < len(boardWithNums); i++ {
+		fmt.Println(boardWithNums[i])
+	}
 
 }
 
