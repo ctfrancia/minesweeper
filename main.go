@@ -9,7 +9,7 @@ import (
 func main() {
 	c := 8  // columns
 	r := 8  // rows
-	nb := 1 // # bombs
+	nb := 2 // # bombs
 	start(c, r, nb)
 }
 
@@ -56,8 +56,16 @@ func setNumbers(bwb, bombLocs [][]int) [][]int {
 		fmt.Println(i, v)
 		row := v[0]
 		col := v[1]
-		numBoard[row-1][col]++
-		numBoard[row+1][col]++
+		if row-1 >= 0 {
+			if numBoard[row-1][col] != -1 {
+				numBoard[row-1][col]++
+			}
+		}
+		if row+1 <= len(numBoard[row]) {
+			if numBoard[row+1][col] != -1 {
+				numBoard[row+1][col]++
+			}
+		}
 		numBoard[row][col-1]++
 		numBoard[row][col+1]++
 		numBoard[row+1][col-1]++
