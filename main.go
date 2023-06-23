@@ -54,8 +54,7 @@ func setBombs(eb [][]int, c, r, nb int) ([][]int, [][]int) {
 func setNumbers(bwb, bombLocs [][]int) [][]int {
 	numBoard := bwb
 
-	for i, v := range bombLocs {
-		fmt.Println(i, v)
+	for _, v := range bombLocs {
 		row := v[0]
 		col := v[1]
 
